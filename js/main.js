@@ -30,7 +30,17 @@
 //     }
 //   }
 
+const arrayTareas = {
+  titulo :'tarea1',
+  descripcion : 'texto',
+  imagen: 'img',
+  fechaInicio : 'Fecha',
+  fechaFin : 'fechaFIn',
+  asignacion: 'pendiente'
+}
 
+const cadenaJson = JSON.stringify(arrayTareas);
+console.log(cadenaJson);
 
 
 const addTarea = document.getElementById('addTarea');
@@ -74,18 +84,17 @@ addTarea.addEventListener('click', function () {
     <input id="btnAddTarea" type="submit" value="Registrar" />
     </form>
     `
-    if(registroTarea){
-     
-      console.log('vamos bien loco ')
-    }
+    console.log('aqui llega ')
+    
 });
 
+const btnFormu = document.getElementById('RegistroTarea')
 
-const registroTarea = document.getElementById('registroTarea');
+function agregarTarea(){
+  if (!btnFormu){
+      console.log(btnFormu)
+  }else{
+    alert('no sirve')
+  }
 
-// registroTarea.addEventListener('submit', function(){
-
-
-//   console.log(registroTarea);
-// })
-
+}
