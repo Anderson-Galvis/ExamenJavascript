@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>Formulario de Registro </title>
+</head>
+<body>
+    
+    <header class="flex place-content-between m-2 p-3 bg-red-50 ">
+        <button><a href="/ExamenJavascript/index.html">Volver</a></button>
+        <h1 class="text-5xl">Registro de Usuario</h1>
+        <a class="align-middle" href=""></a>
+    </header>
+
+
+    <form action="form" id="formRegis" 
+    class="border justify-center">
+        <h2>Ingresa todos los datos </h2>
+        <form id="registrationForm">
+          <div>
+            <label for="Nombre usuario">Nombre del usuario:</label><br>
+            <input type="text" id="nameUser" name="nameUser" placeholder="nombre de Usuario"/>
+          </div>
+          <div>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" placeholder="Correo electronico" />
+          </div>
+          <div>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" placeholder="Contraseña" />
+          </div>
+          <div>
+            <input id="btnRegistro" type="submit" value="Registrar" />
+          </div>
+        </form>
+    
+        <div id="errorMessages"></div>            
+</body>
+</html>
