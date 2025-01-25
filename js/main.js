@@ -20,35 +20,38 @@
 //     });
 
 
-// async function obtenerDatos() {
-//     try {
-//       let respuesta = await fetch('http://localhost:3000');
-//       let datos = await respuesta.json();
-//       console.log('no hay datos',datos);
-//     } catch (error) {
-//       console.error("Hubo un error:", error);
-//     }
-//   }
 
-const arrayTareas = {
-  titulo :'tarea1',
-  descripcion : 'texto',
+
+async function obtenerDatos() {
+  try {
+    let respuesta = await fetch('http://localhost:3000');
+    let datos = await respuesta.json();
+    console.log('Datos obtenidos:', datos);
+  } catch (error) {
+    console.error("Hubo un error:", error);
+  }
+}
+
+
+var arrayTareas = {
+  titulo: 'tarea1',
+  descripcion: 'texto',
   imagen: 'img',
-  fechaInicio : 'Fecha',
-  fechaFin : 'fechaFIn',
+  fechaInicio: 'Fecha',
+  fechaFin: 'fechaFIn',
   asignacion: 'pendiente'
 }
 
 const cadenaJson = JSON.stringify(arrayTareas);
-console.log(cadenaJson);
 
+
+//funcion que muestra el formulario para agregar la tarea 
 
 const addTarea = document.getElementById('addTarea');
 const modalTarea = document.getElementById('modalTarea')
 
 addTarea.addEventListener('click', function () {
-    modalTarea.innerHTML = `<h2>Añadir tarea a la lista </h2><br> 
-  
+  modalTarea.innerHTML = `<h2>Añadir tarea a la lista </h2><br> 
 
     <form id="registroTarea">
     <div>
@@ -56,7 +59,7 @@ addTarea.addEventListener('click', function () {
       <input value="tituloTarea" type="text" id="tituloTarea" name="nameUser" placeholder="Nombre de la Tarea"/>
     </div>
     <div>
-    <textarea value="textarea" class="border" name="textarea" rows="5" cols="20">Describe breve mente la tarea a realizar </textarea>
+    <textarea value="textarea" id="descrpcionTarea"class="border" name="textarea" rows="5" cols="20">Describe breve mente la tarea a realizar </textarea>
     </div>
     <div>
       <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" />
@@ -72,7 +75,7 @@ addTarea.addEventListener('click', function () {
 </div>
 
 <div class="caja">
-    <select name="select">
+    <select name="select" id="etiquetaAsignacion">
         <option value="value1">Pendientes</option>
         <option value="value2" selected>En Proceso</option>
         <option value="value3">Terminadas</option>
@@ -84,17 +87,70 @@ addTarea.addEventListener('click', function () {
     <input id="btnAddTarea" type="submit" value="Registrar" />
     </form>
     `
-    console.log('aqui llega ')
-    
+  agregarTarea()
+
 });
 
-const btnFormu = document.getElementById('RegistroTarea')
+//elementos y funciones para agregar la tarea 
 
-function agregarTarea(){
-  if (!btnFormu){
-      console.log(btnFormu)
-  }else{
-    alert('no sirve')
-  }
+const btnFormu = document.getElementById('RegistroTarea');
+const cajaPendientes = document.getElementById('cajaPendientes');
+const cajaProceso = document.getElementById('cajaProceso');
+const cajaTerminados = document.getElementById('cajaTerminados');
+const tituloTareas = document.getElementById('tituloTarea');
+const descripcionTarea = document.getElementById('descripcionTarea');
+const imgTarea = document.getElementById('avatar');
+const fechaInicio = document.getElementById('fechaInicio');
+const fechaFin = document.getElementById('fechaFin');
+const etiquetaAsignacion = document.getElementById('etiquetaAsignacion')
 
-}
+
+function agregarTarea() {
+
+  switch (etiquetaAsignacion) {
+
+    case "Pendientes":
+
+    cajaPendientes.innerHTML =
+      arrayTareas["titulo"] = tituloTareas
+      arrayTareas["descripcion"] = descripcionTarea
+      arrayTareas["imagen"] = imgTarea;
+      arrayTareas["fechaInicio"] = fechaInicio;
+      arrayTareas["fechaFin"] = fechaFin;
+      break;
+
+    case "En proceso":
+      cajaProceso.innerHTML =
+      arrayTareas["titulo"] = tituloTareas
+      arrayTareas["descripcion"] = descripcionTarea
+      arrayTareas["imagen"] = imgTarea;
+      arrayTareas["fechaInicio"] = fechaInicio;
+      arrayTareas["fechaFin"]= fechaFin;
+        break;
+    case "Terminados":
+      cajaTerminados.innerHTML = 
+      arrayTareas["titulo"] = "hola"
+      arrayTareas["descripcion"] = descripcionTarea;
+      arrayTareas["imagen"] = imgTarea;
+      arrayTareas["fechaInicio"] = fechaInicio;
+      arrayTareas["fechaFin"]= fechaFin;
+    break;
+
+    default:
+
+      console.log('No existe esa opcion')
+    };
+
+
+
+};
+
+
+//funcion para darle el evento al boton para guardar la tarea 
+
+const btnAddTarea = document.getElementById('btnAddTarea');
+
+btnAddTarea.addEventListener('click',()=>{
+    preventDefault();
+ console.log('sirve')
+})
