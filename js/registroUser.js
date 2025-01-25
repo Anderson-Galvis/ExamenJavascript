@@ -1,25 +1,48 @@
-const formRegistro = document.getElementById('formRegis').value;
-const nameUser = document.getElementById('nameUser').value;
-const emailUser = document.getElementById('email').value;
-const password = document.getElementById('password').value;
-const btnRegistro = document.getElementById('btnRegistro').value;
+
+//Traemos el formulario
+const formRegistro = document.getElementById('registrationForm');
+const btnRegistro = document.getElementById('btnRegistro');
 
 
 
-const url = ("http://localhost:3000");
-var datosUser = { nombreUser: nameUser,
-                  emailUser: emailUser,
-                  password: password,
-};
+// evento para enviar los datos al servidor y limpia el formulario de una 
+formRegistro.addEventListener("submit", (e) => {
+  e.preventDefault();
+  
+  const nameUser = document.getElementById('nameUser').value;
+  const emailUser = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
 
-fetch(url, {
-  method: "POST", 
-  body: JSON.stringify(datosUser), 
-  headers: {
-    "Content-Type": "application/json",
-  },
-})
-  .then((res) => res.json())
-  .catch((error) => console.error("Error:", error))
-  .then((response) => console.log("Success:", response));
+  let datosUser = {
+    nombreUser: nameUser,
+    emailUser: emailUser,
+    password: password,
+  }
+  guardarDatos(datosUser);
+  formRegistro.reset();
+});
+
+
+
+async function guardarDatos(datosUser) {
+  const url = ("http://localhost:3000/user");
+
+
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(datosUser)
+    });
+
+    if(!response.ok){
+        alert("sin respuesta")
+    }
+
+  } catch (error) {
+     console.log(error)
+  }
+}
 

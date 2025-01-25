@@ -1,29 +1,9 @@
 {
-    "user": [
-      {
-        "id": 1,
-        "name": "Pankaj",
-        "pass": "10000"
-      },
-      {
-        "name": "David",
-        "pass": "5000",
-        "id": 2
-      }
-    ],
- 
-  
-    "employees": [
-      {
-        "id": 1,
-        "name": "Pankaj",
-        "salary": "10000"
-      },
-      {
-        "name": "David",
-        "salary": "5000",
-        "id": 2
-      }
-    ]
+  "user": [
+    {
+      "id": 1,
+      "name": "Pankaj",
+      "pass": "10000"
+    }
+  ]
 }
-  
