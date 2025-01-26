@@ -1,0 +1,21 @@
+{
+  "user": [
+    {
+      "id": "1",
+      "name": "Pankaj",
+      "pass": "10000"
+    },
+    {
+      "id": "70ad",
+      "nombreUser": "ananana",
+      "emailUser": "ajajajajaa@gmail.com",
+      "password": "12344556"
+    },
+    {
+      "id": "f5e5",
+      "nombreUser": "ander",
+      "emailUser": "ander@gmail.com",
+      "password": "123456789"
+    }
+  ]
+}
